@@ -4,13 +4,13 @@
   <form (ngSubmit)="onSubmit()" #myForm="ngForm">
     <div ngModelGroup="personalDetails" #personalDetails="ngModelGroup">
       <label for="fname">First Name</label>
-      <input #fname="ngModel" [(ngModel)]="firstname" required type="text" name="firstname" id="fname" placeholder="Your first name..."/>
+      <input #fname="ngModel" ngModel required type="text" name="firstname" id="fname" placeholder="Your first name..."/>
       <!--<div>
         <small *ngIf="fname.invalid && fname.touched">First Name is a required field</small>
         <span *ngIf="firstname">You entered: {{firstname}}</span>
       </div> -->
       <label for="lname">Last Name</label>
-      <input #lname="ngModel" [(ngModel)]="lastname" required type="text" name="lastname" id="lname" placeholder="Your last name..."/>
+      <input #lname="ngModel" ngModel required type="text" name="lastname" id="lname" placeholder="Your last name..."/>
       <!--<div>
         <small *ngIf="lname.invalid && lname.touched">Last Name is a required field</small>
         <span *ngIf="lastname">You entered: {{lastname}}</span>
@@ -23,6 +23,7 @@
       <div>
         <small *ngIf="personalDetails.invalid && personalDetails.touched">Some of the required fields does not have required values.</small>
       </div>
+      <button (click)="setDefaultValues()">Set Defualt Values</button>
     </div>
     <label for="country">Country</label>
     <select id="country" [ngModel]="defaultCountry" name="country">
@@ -61,4 +62,12 @@
     <input type="submit" value="Submit" id="btn"/>
     <!--<input type="submit" value="Submit" id="btn" [disabled]="myForm.invalid"/> -->
   </form>
+</div>
+<div class="form-data">
+  <h3>Form Data</h3>
+  <p>First Name: <b>{{firstname}}</b></p>
+  <p>Last Name: <b>{{lastname}}</b></p>
+  <p>Email: <b>{{mail}}</b></p>
+  <p>Country: <b>{{country}}</b></p>
+  <p>Gender: <b>{{gen}}</b></p>
 </div>
